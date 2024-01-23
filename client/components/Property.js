@@ -21,13 +21,16 @@ export default function Property({...props}) {
                     rounded={"10px"}
                 >
                 </Image>
-                <Text>
+                <Text
+                    fontWeight={"bold"}
+                    fontFamily={"noto sans, sans-serif"}
+                    mb={"auto"}
+                >
                     {property.name}
                 </Text>
-                <Spacer />
                 <Text
-                    fontSize={"12px"}
-                    ml={"10px"}
+                    fontSize={"13px"}
+                    fontFamily={"noto sans, sans-serif"}
                 >
                     {property.description}
                 </Text>

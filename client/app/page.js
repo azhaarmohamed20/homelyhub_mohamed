@@ -14,8 +14,8 @@ export default function Home() {
       rounded="10px"
       fontFamily={"noto sans, sans-serif"}
     >
-    <Text>Meine Seite</Text>
+      <Text>Meine Seite</Text>
       <PropertyList />
-  </Box> 
+    </Box> 
   )
 }
