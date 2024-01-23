@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import { Box,Text } from '@chakra-ui/react'
+import PropertyList from '@/components/PropertyList'
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
       fontFamily={"noto sans, sans-serif"}
     >
     <Text>Meine Seite</Text>
-      
+      <PropertyList />
   </Box> 
   )
 }
