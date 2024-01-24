@@ -4,6 +4,7 @@ const dotenv = require("dotenv")
 const connectDB = require('./db.js')
 const propertyRoutes = require('./routes/propertyRoutes')
 const userRoutes = require('./routes/userRoutes')
+const shoppinCartRoutes = require('./routes/shoppingCartRoutes')
 
 dotenv.config()
 connectDB()
@@ -16,6 +17,7 @@ app.use(cors());
 
 app.use("/api/property", propertyRoutes)
 app.use("/api/user", userRoutes)
+app.use("/api/cart", shoppinCartRoutes)
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
