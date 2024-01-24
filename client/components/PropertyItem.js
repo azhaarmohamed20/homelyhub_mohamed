@@ -101,7 +101,7 @@ export default function PropertyItem({ properties}){
                 fontWeight={"bold"}
                 fontFamily={"noto sans, sans-serif"}
             >
-                    Kurz Beschreibung
+                    Beschreibung
             </Text>
 
             {paragraphs.map((paragraph, index) => (
