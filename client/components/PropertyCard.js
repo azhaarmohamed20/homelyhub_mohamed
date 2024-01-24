@@ -1,18 +1,26 @@
-"use client"
-import { Box, Image, Spacer, Stack, Text, HStack } from "@chakra-ui/react";
 
+import { Box, Image, Spacer, Stack, Text, HStack, Button } from "@chakra-ui/react";
+import { useRouter } from 'next/router';
 export default function Property({...props}) {
     let { property } = props
 
+
+
+    const handlePropertyClick = (propertyId) => {
+        window.location.href = `/property/${propertyId}`;
+    };
+
     return (
         
-            <Box
+            <Button
                 rounded="10px"
-                bg={"#EDEDED"}
-                m={"auto"}
+                border={"2px solid #EDEDED"}
                 p={"10px"}
+                bg={"white"}
+                _hover={{ bg: '#EDEDED' }}
+                onClick={() => handlePropertyClick(property._id)}
             >
-            <Stack spacing={2}>
+            <Stack spacing={0.5}>
                 <Image
                     src={property.image}
                     alt={property.name}
@@ -32,11 +40,11 @@ export default function Property({...props}) {
                     fontSize={"13px"}
                     fontFamily={"noto sans, sans-serif"}
                 >
-                    {property.description}
+                    {property.short_description}
                 </Text>
             </Stack>
            
-            </Box>
+            </Button>
         
     );
 }

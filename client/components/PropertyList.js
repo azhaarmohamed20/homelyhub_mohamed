@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from "react"
-import Property from "./Property";
-import { HStack } from "@chakra-ui/react";
+import PropertyCard from "./PropertyCard";
+import { HStack, Spacer, Flex } from "@chakra-ui/react";
 
 export default function PropertyList(){
     const [properties, setProperties] = useState([])
@@ -15,10 +15,16 @@ export default function PropertyList(){
 
 
     return (
-        <HStack spacing={"24px"}>
-            {properties.map(property => (
-                <Property key={property._id} property={property} />
-            ))}
-        </HStack>
+        <Flex
+        flexDirection="row"
+        justifyContent="center"
+        alignItems="center"
+        flexWrap="wrap"
+        gap={"20px"}
+    >
+        {properties.map(property => (
+            <PropertyCard key={property._id} property={property} />
+        ))}
+    </Flex>
     )
 }

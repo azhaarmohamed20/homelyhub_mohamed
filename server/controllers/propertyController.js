@@ -1,8 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const Property = require("../model/propertyModel");
 
-
-
 const fetchProperty = asyncHandler(async (req, res) => {
     try {
         const properties = await Property.find({});
@@ -25,9 +23,9 @@ const fetchPropertyById = asyncHandler(async (req, res) => {
 });
 
 const addProperty = asyncHandler(async (req, res) => {
-    const { name, description, price, location, image } = req.body;
+    const { name, short_description, long_description, number_of_rooms, price, location, image } = req.body;
     try {
-        const property = new Property({ name, description, price, location, image });
+        const property = new Property({ name, short_description, long_description, number_of_rooms, price, location, image });
         const newProperty = await property.save();
         res.status(201).json(newProperty);
     } catch (error) {
@@ -36,14 +34,16 @@ const addProperty = asyncHandler(async (req, res) => {
 });
 
 const updateProperty = asyncHandler(async (req, res) => {
-    const { name, description, price, location, image } = req.body;
+    const { name, short_description, long_description, number_of_rooms, price, location, image } = req.body;
     try {
         let property = await Property.findById(req.params.id);
         if (!property) {
             return res.status(404).json({ message: 'Property not found' });
         }
         property.name = name;
-        property.description = description;
+        property.short_description = short_description;
+        property.long_description = long_description;
+        property.number_of_rooms = number_of_rooms;
         property.price = price;
         property.location = location;
         property.image = image;
@@ -66,7 +66,6 @@ const deleteProperty = asyncHandler(async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
-
 
 module.exports = { 
     fetchProperty , 

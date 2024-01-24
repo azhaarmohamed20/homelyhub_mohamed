@@ -5,8 +5,16 @@ const propertySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description: {
+    short_description: {
         type: String,
+        required: true
+    },
+    long_description: {
+        type: String,
+        required: true
+    },
+    number_of_rooms: {
+        type: Number,
         required: true
     },
     price: {
