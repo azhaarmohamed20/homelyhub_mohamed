@@ -12,6 +12,7 @@ export default function Navbar(){
             color="black"
             rounded="10px"
             fontFamily={"noto sans, sans-serif"}
+            mt={"20px"}
         >
         <Flex 
             alignItems="center"

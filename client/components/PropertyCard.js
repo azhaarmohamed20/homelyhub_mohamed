@@ -14,17 +14,16 @@ export default function Property({...props}) {
         
             <Button
                 rounded="10px"
-                border={"2px solid #EDEDED"}
-                p={"10px"}
-                bg={"white"}
-                _hover={{ bg: '#EDEDED' }}
+                height={"auto"}
+                variant={"outline"}
+                paddingY={3}
                 onClick={() => handlePropertyClick(property._id)}
             >
             <Stack spacing={0.5}>
                 <Image
                     src={property.image}
                     alt={property.name}
-                    aspectRatio={"16/10"}
+                    objectFit={"cover"}
                     boxSize={"200px"}
                     rounded={"10px"}
                 >

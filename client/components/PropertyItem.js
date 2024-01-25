@@ -4,6 +4,8 @@ import { ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon, MoonIcon } from "@chakr
 import { Link } from "@chakra-ui/react"
 import NextLink from "next/link"
 import { useState } from "react"
+import CheckoutModal from "./CheckoutModal"
+
 
 export default function PropertyItem({ properties}){
 
@@ -112,9 +114,13 @@ export default function PropertyItem({ properties}){
                 </Button>   
             </HStack>
             
-            <Button border={"2px solid lightgrey"} display={"block"} alignItems={"center"} m={"auto"} mt={"10px"} bg={"white"} rounded={"5px"} fontSize={"25px"} _hover={{ bg: '#EDEDED' }} onClick={() => window.location.href = `/checkout`}> 
-                    Checkout
-            </Button>
+            <CheckoutModal 
+                selectedProperty={properties.name}
+                numberOfNights={counter} 
+                totalPrice={properties.price * counter}
+                
+             />
+
 
             <Text 
                 display={"block"}

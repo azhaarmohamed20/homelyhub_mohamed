@@ -16,12 +16,12 @@ export default function PropertyList(){
 
     return (
         <Flex
-        flexDirection="row"
-        justifyContent="center"
-        alignItems="center"
-        flexWrap="wrap"
-        gap={"20px"}
-    >
+            flexDirection="row"
+            justifyContent="center"
+            alignItems="center"
+            flexWrap="wrap"
+            gap={"20px"}
+        >
         {properties.map(property => (
             <PropertyCard key={property._id} property={property} />
         ))}
