@@ -2,8 +2,6 @@
 import PropertyItem from "@/components/PropertyItem"
 import { Box } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
-import { useRouter } from 'next/router';
-import { useParams } from "react-router-dom";
 
 export default function Property(){
 

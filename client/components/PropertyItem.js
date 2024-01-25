@@ -1,12 +1,22 @@
 "use client"
-import { Box, Image, Text, Tooltip , Tag, HStack, Spacer, chakra} from "@chakra-ui/react"
-import { ChevronLeftIcon, MoonIcon } from "@chakra-ui/icons"
+import { Box, Image, Text, Tooltip , Tag, HStack, Spacer, chakra, Button} from "@chakra-ui/react"
+import { ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon, MoonIcon } from "@chakra-ui/icons"
 import { Link } from "@chakra-ui/react"
 import NextLink from "next/link"
+import { useState } from "react"
 
 export default function PropertyItem({ properties}){
 
-    console.log(properties)
+    const [counter, setCounter] = useState(1)
+
+    function increaseCounter(){
+        setCounter(prevCounter => prevCounter + 1)
+    }
+    
+    function decreaseCounter(){
+        setCounter(prevCounter => prevCounter > 1 ? prevCounter - 1 : 1)
+    }
+
     function splitTextIntoParagraphs(text, linesPerParagraph) {
         if (!text) {
             return [];
@@ -78,7 +88,7 @@ export default function PropertyItem({ properties}){
                 pb={"50px"}
             />
             
-            <HStack spacing={10} justify={"center"} gap={"50px"} width={"100%"} overflowX={"auto"}>
+            <HStack spacing={10} justify={"center"} gap={"50px"} width={"100%"} overflowX={"auto"} maxHeight={"auto"}>
                 <Tooltip label={"price"} >
                         <Tag bg={"#EDEDED"} rounded={"5px"} fontSize={"30px"}>
                             <MoonIcon mr={"10px"} /> Pro Nacht {price} $
@@ -89,7 +99,22 @@ export default function PropertyItem({ properties}){
                     <Tag fontSize={"30px"} bg={"#EDEDED"} rounded={"5px"}> {properties.number_of_rooms} Zimmer</Tag>
                 </Tooltip>
             </HStack>
+            <Spacer />
+            <Text pt={"20px"} textAlign={"center"} m={"5px"} fontSize={"18pxs"}>Anzahl Nächte</Text>
+            <HStack spacing={10} justify={"center"} gap={"50px"} width={"100%"} overflowX={"auto"}k>
+                <Button border={"none"} bg={"white"} onClick={() => decreaseCounter(counter)}>
+                    <ArrowLeftIcon boxSize={"25px"}/>
+                </Button>
+                
+                <Text fontSize={"25px"} m={0}>{counter}</Text>
+                <Button border={"none"} bg={"white"} onClick={() => increaseCounter(counter)}>
+                    <ArrowRightIcon boxSize={"25px"}/>
+                </Button>   
+            </HStack>
             
+            <Button border={"2px solid lightgrey"} display={"block"} alignItems={"center"} m={"auto"} mt={"10px"} bg={"white"} rounded={"5px"} fontSize={"25px"} _hover={{ bg: '#EDEDED' }} onClick={() => window.location.href = `/checkout`}> 
+                    Checkout
+            </Button>
 
             <Text 
                 display={"block"}
