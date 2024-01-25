@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const propertySchema = new mongoose.Schema({
+    stripe_id:{
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true

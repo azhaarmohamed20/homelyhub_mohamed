@@ -17,11 +17,27 @@ import {
 export default function CheckoutModal({ selectedProperty, numberOfNights, totalPrice }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleCheckout = () => {
+  const items = [
+    { id: selectedProperty.stripe_id, quantity: numberOfNights }
+  ];
+  const handleCheckout = async () => {
     // Implement your checkout logic here
-    console.log(`Checking out ${selectedProperty} for ${numberOfNights} nights`);
+    const response = await fetch("http://localhost:5000/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        items: items
+      })
+    });
+    const data = await response.json();
+    if (data.url) {
+      window.location.assign(data.url); // Redirect to Stripe Checkout
+    }
     setIsOpen(false);
-  };
+  }
+
 
   return (
     <>
@@ -64,7 +80,7 @@ export default function CheckoutModal({ selectedProperty, numberOfNights, totalP
                     </Thead>
                     <Tbody>
                     <Tr>
-                        <Td>{selectedProperty}</Td>
+                        <Td>{selectedProperty.name}</Td>
                         <Td>{numberOfNights}</Td>
                         <Td fontWeight={"bold"}>{totalPrice}$</Td>
                     </Tr>

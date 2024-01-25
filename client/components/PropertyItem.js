@@ -78,11 +78,15 @@ export default function PropertyItem({ properties}){
                 </Text>
             </HStack>
             
+            {/* //https://www.penthouses-zuerich.ch/img/projekt1.jpg?v=2
+                https://www.villeinitalia.com/images/Villa_Rubini_WEB/de/Dongo_Comer-See_Lombardei-und-Comer-See_Villa_Rubini_index_001_1684994721.jpg
+                https://www.luxhaus.de/fileadmin/_processed_/9/a/csm_T_Glasfassade_beim_Einfamilienhaus_Flachdach_132_luxhaus_85cc27e141.jpg
+            */}
 
             <Image
                 src={properties.image}
                 alt={properties.name}
-                
+                objectFit={"cover"}
                 boxSize={"500px"}
                 rounded={"10px"}
                 display={"block"} 
@@ -115,10 +119,10 @@ export default function PropertyItem({ properties}){
             </HStack>
             
             <CheckoutModal 
-                selectedProperty={properties.name}
+                selectedProperty={properties}
                 numberOfNights={counter} 
                 totalPrice={properties.price * counter}
-                
+                just
              />
 
 
