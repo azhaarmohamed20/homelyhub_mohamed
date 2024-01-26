@@ -15,7 +15,7 @@ export default function PropertyItem({ properties}){
 
     useEffect(() => {
         // Überprüfen, ob der Benutzer eingeloggt ist, basierend auf dem Token im Local Storage
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("userInfo");
         setIsLoggedIn(!!token); // Setzt isLoggedIn auf true, wenn ein Token vorhanden ist
     }, []);
 
