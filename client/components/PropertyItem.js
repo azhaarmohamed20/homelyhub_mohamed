@@ -5,11 +5,19 @@ import { Link } from "@chakra-ui/react"
 import NextLink from "next/link"
 import { useState } from "react"
 import CheckoutModal from "./CheckoutModal"
-
+import { useEffect } from "react"
 
 export default function PropertyItem({ properties}){
 
     const [counter, setCounter] = useState(1)
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        // Überprüfen, ob der Benutzer eingeloggt ist, basierend auf dem Token im Local Storage
+        const token = localStorage.getItem("token");
+        setIsLoggedIn(!!token); // Setzt isLoggedIn auf true, wenn ein Token vorhanden ist
+    }, []);
 
     function increaseCounter(){
         setCounter(prevCounter => prevCounter + 1)
@@ -118,12 +126,22 @@ export default function PropertyItem({ properties}){
                 </Button>   
             </HStack>
             
-            <CheckoutModal 
+            {isLoggedIn ? (
+                <CheckoutModal
                 selectedProperty={properties}
-                numberOfNights={counter} 
+                numberOfNights={counter}
                 totalPrice={properties.price * counter}
                 just
-             />
+                />
+            ) : (
+                <Text
+                fontSize={"40px"}
+                color='red.500'
+                textAlign={"center"}
+                mt={"40px"}
+                mb={"40px"}
+                >Bitte einloggen, so kann die Zahlung stattfinden</Text>
+            )}
 
 
             <Text 

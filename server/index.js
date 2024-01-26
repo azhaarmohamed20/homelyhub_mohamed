@@ -6,6 +6,7 @@ const propertyRoutes = require('./routes/propertyRoutes')
 const userRoutes = require('./routes/userRoutes')
 const shoppinCartRoutes = require('./routes/shoppingCartRoutes')
 const stripe = require('stripe')('sk_test_51OcWmhCgiIERxIzh9ZcuK90V2EiQ2BDc1XzhDC1Igc2y2V6cTuTCqJtjuqeumMJAZmV4ZxWYPnypjLw3rJgr0jyf00RpyoDIPh');
+const protect = require('./middleware/authMiddleware');
 // sk_test_51OcWmhCgiIERxIzh9ZcuK90V2EiQ2BDc1XzhDC1Igc2y2V6cTuTCqJtjuqeumMJAZmV4ZxWYPnypjLw3rJgr0jyf00RpyoDIPh
 // Luxus Haus: price_1OcXXqCgiIERxIzhj9wy4kqi
 // Luxusvilla am Seeufer: price_1OcXYJCgiIERxIzhRrw1IQnT
