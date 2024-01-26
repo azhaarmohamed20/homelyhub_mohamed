@@ -21,6 +21,7 @@ export default function PropertyList(){
             alignItems="center"
             flexWrap="wrap"
             gap={"20px"}
+            
         >
         {properties.map(property => (
             <PropertyCard key={property._id} property={property} />

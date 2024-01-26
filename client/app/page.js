@@ -14,7 +14,8 @@ export default function Home() {
       rounded="10px"
       fontFamily={"noto sans, sans-serif"}
     >
-      <Text>Meine Seite</Text>
+      <Text textAlign={"center"} fontSize={"40px"} fontWeight={"bold"}>Wilkommen zu HomelyHub</Text>
+      <Text textAlign={"center"} fontSize={"25px"} mb={"40px"}>Buchen sie ihr Luxus Traum Haus für die besten Preise.</Text>
       <PropertyList />
     </Box> 
   )

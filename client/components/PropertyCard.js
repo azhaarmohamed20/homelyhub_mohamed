@@ -18,6 +18,7 @@ export default function Property({...props}) {
                 variant={"outline"}
                 paddingY={3}
                 onClick={() => handlePropertyClick(property._id)}
+                mb={"40px"}
             >
             <Stack spacing={0.5}>
                 <Image
@@ -26,6 +27,8 @@ export default function Property({...props}) {
                     objectFit={"cover"}
                     boxSize={"200px"}
                     rounded={"10px"}
+                    justifyContent={"center"}
+                    m={"auto"}
                 >
                 </Image>
                 <Text
