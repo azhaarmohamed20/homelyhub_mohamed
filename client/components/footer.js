@@ -15,7 +15,7 @@ export default function Footer(){
               fontSize="15px"
               ml="20px"
             >
-              © 2022 HomelyHub. All rights reserved. [Imprint and Privacy]
+              © 2024 HomelyHub. All rights reserved.
             </Text>
           </Box>      
     )
